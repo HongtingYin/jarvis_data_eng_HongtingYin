@@ -13,7 +13,7 @@ CREATE TABLE PUBLIC.host_info
 	(
 		id			SERIAL NOT NULL PRIMARY KEY,
 		hostname		VARCHAR NOT NULL UNIQUE,
-		cpu_number		INT NOT NULL,
+		cpu_number		INT NOT NULL ,
 		cpu_architecture	VARCHAR NOT NULL,
 		cpu_model		VARCHAR NOT NULL,
 		cpu_mhz			FLOAT8 NOT NULL,
@@ -25,7 +25,7 @@ CREATE TABLE PUBLIC.host_info
 CREATE TABLE PUBLIC.host_usage
         (
 		"timestamp"             TIMESTAMP NOT NULL, 
-		host_id                 SERIAL REFERENCES public.host_info(id),
+		host_id                 SERIAL NOT NULL REFERENCES public.host_info(id),
 		memory_free             INT NOT NULL,
         	cpu_idel                INT NOT NULL,
         	cpu_kernel       	INT NOT NULL,

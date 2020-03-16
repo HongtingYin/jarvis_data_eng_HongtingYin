@@ -5,7 +5,7 @@
 command=$1
 password=$2
 
-export PGPASSWORD='password'
+export PGPASSWORD=$password
 
 #check command is start or stop
 if [[ $1 = 'start' && "$#" -eq 2 ]]; then
