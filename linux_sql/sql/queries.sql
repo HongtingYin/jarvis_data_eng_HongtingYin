@@ -16,7 +16,7 @@ SELECT
 	host_usage.host_id AS host_id,
 	host_info.hostname AS host_name,
 	host_usage.timestamp,
-	AVG(((host_info.total_mem::FLOAT - host_usage.memory_free) / host_info.total_mem::FLOAT) * 100)::FLOAT AS avg_used_mem_percentage)
+	AVG(((host_info.total_mem - host_usage.memory_free) / host_info.total_mem::FLOAT) * 100)::FLOAT AS avg_used_mem_percentage)
 FROM
 	host_usage
 	INNER JOIN host_info ON host_usage.host_id = host_info.id
