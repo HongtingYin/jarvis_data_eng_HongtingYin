@@ -22,7 +22,7 @@ fi
 #collect server information
 timestamp=$(date -u '+%Y-%m-%d %H:%M:%S') #current timestamp in `2019-11-26 14:40:19` format
 hostname=$(hostname -f)
-memory_free=$(vmstat --unit M | tail -1 | awk '{print $4}' | xargs)
+memory_free=$(vmstat | tail -1 | awk '{print $4}' | xargs)
 cpu_idel=$(vmstat -t | tail -1 | awk '{print $15}' | xargs)
 cpu_kernel=$(vmstat --unit M | tail -1 | awk '{print $14}' | xargs)
 disk_io=$(vmstat -d | tail -1 | awk '{print $10}' | xargs)
