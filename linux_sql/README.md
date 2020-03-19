@@ -7,7 +7,9 @@ s by the infrastructure team which helps them to make better resource planning i
 .
 
 ## Architecture & Design
+
 ![diagram](/assets/architecture.png)
+
 1. Tables:
   * `host_info`: a table contains hardware specifications data.
   * `host_usage`: a table contains server CPU and memory usage data.
