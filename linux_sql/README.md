@@ -13,7 +13,7 @@ s by the infrastructure team which helps them to make better resource planning i
 1. There are two tables in the database `host_agent`:
   * `host_info`: a table contains hardware specifications data of each node and there is only one host information for now.
 
-###Schema of host_info
+### Schema of host_info
 | Attributes       | Data Type    | Description                            |
 | ---------------- | ------------ | -------------------------------------- |
 | id               | SERIAL       | Primary key                            |
@@ -28,7 +28,7 @@ s by the infrastructure team which helps them to make better resource planning i
 
   * `host_usage`: a table contains server CPU and memory usage data.
 
-###Schema of host_usage
+### Schema of host_usage
 | Attributes       | Data Type    | Description                            |
 | ---------------- | ------------ | -------------------------------------- |
 | "timestamp"      | TIMESTAMP    | Time when inserting data(UTC time zone)|
