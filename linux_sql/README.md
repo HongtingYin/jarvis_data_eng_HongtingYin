@@ -52,24 +52,32 @@ ata.
 late the average memory usage percentage for each host.
 
 ## Usage
-1. Install PostgreSQL and create the database host_agent:
+1. Setup docker and start a container, stop a container:
 ```
-bash ./psql_docker.sh [start|stop] docker
+bash ./psql_docker.sh start docker
+bash ./psql_docker.sh stop
+```
+
+2. Create database and tables:
+```
 psql -h localhost -U postgres -W -f ./ddl.sql
 ```
 
-2. host_info.sh usage:
+3. Collect hardware specification by running host_info.sh:
 ```
 bash ./host_info.sh localhost 5432 host_agent postgres docker
 ```
 
-3. host_usage.sh usage:
+4. Collect server usage information by running host_usage.sh usage:
 ```
 bash ./host_usage.sh localhost 5432 host_agent postgres docker
 ```
 
-4. Crontab setup:
+5. Crontab setup and execute `host_usage.sh` periodically:
 ```
+#Edit crontab jobs
+crontab -e
+#Add following command and host_usage.sh will be running periodically
 * * * * * bash /home/centos/dev/jarvis_data_eng_Hongting/linux_sql/scripts/host_usage.sh localhost 5432 host_agent postgres docker > /tmp/host_usage.log
 ```
 
