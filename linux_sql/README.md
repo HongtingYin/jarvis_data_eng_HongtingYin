@@ -1,6 +1,6 @@
 # Linux Cluster Monitoring Agent
 
-##Introduction
+## Introduction
 This cluster monitoring agent is used to record the hardware specifications of each node and
  monitor node resource usage in real-time. The collected data can be used to generate report
 s by the infrastructure team which helps them to make better resource planning in the future
