@@ -27,8 +27,9 @@ late the average memory usage percentage for each host.
 
 ## Usage
 1. Install PostgreSQL and create the database host_agent:
-  * `bash ./psql_docker.sh [start|stop] docker`
-  * `psql -h localhost -U postgres -W -f ./ddl.sql`
+```bash ./psql_docker.sh [start|stop] docker
+psql -h localhost -U postgres -W -f ./ddl.sql
+```
 2. host_info.sh usage:
  * `bash ./host_info.sh localhost 5432 host_agent postgres docker`
 3. host_usage.sh usage:
