@@ -8,7 +8,7 @@ s by the infrastructure team which helps them to make better resource planning i
 
 ## Architecture & Design
 
-![diagram](/assets/architecture.png)
+![diagram](./assets/architecture.png)
 
 1. Tables:
   * `host_info`: a table contains hardware specifications data.
