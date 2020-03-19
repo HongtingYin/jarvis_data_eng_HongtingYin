@@ -14,18 +14,31 @@ s by the infrastructure team which helps them to make better resource planning i
   * `host_info`: a table contains hardware specifications data of each node and there is only one host information for now.
 
 ###Schema of host_info
-| Attributes       | Data Type    | Description                         |
-| ---------------- |:------------:| -----------------------------------:|
-| id               | SERIAL       | Primary key                         |
-| hostname         | VARCHAR      | Unique                              |
-| cpu_number       | INT          | Number of cpu cores                 |
-| cpu_architecture | VARCHAR      | x86_64                              |
-| cpu_model        | VARCHAR      | Intel(R) Xeon(R) CPU @ 2.30GHz      |
-| cpu_mhz          | FLOAT8       | 2300                                |
-| l2_cache         | INT          | L2 cache in KB                      |
-| total_mem        | INT          | Total memory in KB                  |
-| "timestamp"      | TIMESTAMP    | Time when insert data               |
+| Attributes       | Data Type    | Description                            |
+| ---------------- | ------------ | -------------------------------------- |
+| id               | SERIAL       | Primary key                            |
+| hostname         | VARCHAR      | Unique                                 |
+| cpu_number       | INT          | Number of cpu cores                    |
+| cpu_architecture | VARCHAR      | x86_64                                 |
+| cpu_model        | VARCHAR      | Intel(R) Xeon(R) CPU @ 2.30GHz         |
+| cpu_mhz          | FLOAT8       | 2300                                   |
+| l2_cache         | INT          | L2 cache in KB                         |
+| total_mem        | INT          | Total memory in KB                     |
+| "timestamp"      | TIMESTAMP    | Time when inserting data(UTC time zone)|
+
   * `host_usage`: a table contains server CPU and memory usage data.
+
+###Schema of host_usage
+| Attributes       | Data Type    | Description                            |
+| ---------------- | ------------ | -------------------------------------- |
+| "timestamp"      | TIMESTAMP    | Time when inserting data(UTC time zone)|
+| host_id          | SERIAL       | References public.host_info(id)        |
+| memory_free      | INT          | Free memory in KB                      |
+| cpu_idel         | INT          | Percentage of idle cpu                 |
+| cpu_kernel       | INT          | Percentage of kernel in tasks          |
+| disk_io          | INT          | Number of inprogress IO                |
+| disk_available   | INT          | Root directory available disk in KB    |
+
 2. Scripts:
   * `psql_docker.sh`: a bash script is used to setup PostgreSQL with Docker and provision a
 psql instance.
