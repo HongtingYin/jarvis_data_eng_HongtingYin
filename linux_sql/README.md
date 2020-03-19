@@ -31,12 +31,14 @@ late the average memory usage percentage for each host.
 psql -h localhost -U postgres -W -f ./ddl.sql
 ```
 2. host_info.sh usage:
- * `bash ./host_info.sh localhost 5432 host_agent postgres docker`
+```bash ./host_info.sh localhost 5432 host_agent postgres docker
+```
 3. host_usage.sh usage:
- * `bash ./host_usage.sh localhost 5432 host_agent postgres docker`
+```bash ./host_usage.sh localhost 5432 host_agent postgres docker
+```
 4. Crontab setup:
- * ` * * * * * bash /home/centos/dev/jarvis_data_eng_Hongting/linux_sql/scripts/host_usage.s
-h localhost 5432 host_agent postgres docker > /tmp/host_usage.log`
+``` * * * * * bash /home/centos/dev/jarvis_data_eng_Hongting/linux_sql/scripts/host_usage.sh localhost 5432 host_agent postgres docker > /tmp/host_usage.log
+```
 
 ## Improvements
 1. Create a script which includes all commands for all processes, like docker initialization
