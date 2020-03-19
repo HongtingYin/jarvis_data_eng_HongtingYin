@@ -75,7 +75,7 @@ bash ./host_usage.sh localhost 5432 host_agent postgres docker
 
 5. Crontab setup and execute `host_usage.sh` periodically:
 ```
-#Edit crontab jobs
+[//]: # (Edit crontab jobs)
 crontab -e
 #Add following command and host_usage.sh will be running periodically
 * * * * * bash /home/centos/dev/jarvis_data_eng_Hongting/linux_sql/scripts/host_usage.sh localhost 5432 host_agent postgres docker > /tmp/host_usage.log
