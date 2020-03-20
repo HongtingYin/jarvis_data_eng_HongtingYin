@@ -9,6 +9,7 @@ s by the infrastructure team which helps them to make better resource planning i
 ## Architecture & Design
 
 ![diagram](./assets/architecture.png)
+
 As shown above, two bash scripts are running in the Linux Cluster to collect the host's information, hardware specifications and real-time resource usage, of each node. Then the collected data will be inserted to the PostgreSQL database which is set up on a Docker container in the first server.  
 
 1. There are two tables in the database `host_agent`:
