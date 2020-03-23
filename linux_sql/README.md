@@ -78,7 +78,6 @@ crontab -l
 ```
 
 ## Improvements
-1. Create a script which includes all commands for all processes, like docker initialization
-,database&tables creation, and data insertion.
+1. Create a script which includes all commands for all processes, like docker initialization, database&tables creation, and data insertion.
 2. Allows more servers to add data into database instead of localhost.
 3. Add queries to obtain more information and source usage about localhost.
