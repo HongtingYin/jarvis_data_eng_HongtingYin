@@ -1,10 +1,7 @@
 # Linux Cluster Monitoring Agent
 
 ## Introduction
-This cluster monitoring agent is used to record the hardware specifications of each node and
- monitor node resource usage in real-time. The collected data can be used to generate report
-s by the infrastructure team which helps them to make better resource planning in the future
-.
+This cluster monitoring agent is used to record the hardware specifications of each node and monitor node resource usage in real-time. The collected data can be used to generate reports by the infrastructure team which helps them to make better resource planning in the future.
 
 ## Architecture & Design
 
@@ -42,16 +39,11 @@ As shown above, two bash scripts are running in the Linux Cluster to collect the
 | disk_available   | INT          | Root directory available disk in KB    |
 
 2. Scripts:
-  * `psql_docker.sh`: a bash script is used to setup PostgreSQL with Docker and provision a
-psql instance.
-  * `host_info.sh`: a bash script is used to collect hardware specifications data and store
-them in table host_info.
-  * `host_usage.sh`: a bash script is used to collect server usage data and store them in ta
-ble host_usage.
-  * `ddl.sql`: a set of SQL queries to create database and tables that store the collected d
-ata.
-  * `queries.sql': a set of queries to find a group of hosts by hardware info and also calcu
-late the average memory usage percentage for each host.
+  * `psql_docker.sh`: a bash script is used to setup PostgreSQL with Docker and provision a psql instance.
+  * `host_info.sh`: a bash script is used to collect hardware specifications data and stor them in table host_info.
+  * `host_usage.sh`: a bash script is used to collect server usage data and store them in table host_usage.
+  * `ddl.sql`: a set of SQL queries to create database and tables that store the collected data.
+  * `queries.sql': a set of queries to find a group of hosts by hardware info and also calculate the average memory usage percentage for each host.
 
 ## Usage
 1. Setup docker and start a container, stop a container:
