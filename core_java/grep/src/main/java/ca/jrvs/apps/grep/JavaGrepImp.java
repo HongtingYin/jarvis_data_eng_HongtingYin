@@ -64,7 +64,9 @@ public class JavaGrepImp implements JavaGrep {
     return listOfFiles;
   }
 
-  //Helper function to facilitate recursice calls to subdirectories
+  /**
+   * Helper function to facilitate recursice calls to subdirectories
+   */
   private void listFiles(File folderFile, List<File> fileList) {
     for (final File file : folderFile.listFiles()) {
       if (file.isDirectory()) {
