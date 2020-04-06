@@ -35,14 +35,14 @@ public class JavaGrepLambdaImp extends JavaGrepImp {
     @Override
     public void process() throws IOException {
         writeToFile(
-                listFiles(getRootPath())
+            listFiles(getRootPath())
+                .stream()
+                .flatMap(
+                    f -> readLines(f)
                         .stream()
-                        .flatMap(
-                                f -> readLines(f)
-                                        .stream()
-                                        .filter(this::containsPattern)
-                        )
-                        .collect(Collectors.toList())
+                        .filter(this::containsPattern)
+                )
+                .collect(Collectors.toList())
         );
     }
 
@@ -51,8 +51,8 @@ public class JavaGrepLambdaImp extends JavaGrepImp {
         List<File> ls = new LinkedList<>();
         try {
             Files.walk(Paths.get(rootDir))
-                    .filter(Files::isRegularFile)
-                    .forEach(f -> ls.add(f.toFile()));
+                .filter(Files::isRegularFile)
+                .forEach(f -> ls.add(f.toFile()));
         } catch (IOException e) {
             logger.error(e.getMessage(), e);
         }
