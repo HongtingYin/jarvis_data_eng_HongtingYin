@@ -37,12 +37,27 @@ public class JavaGrepLambdaImp extends JavaGrepImp {
      * Implement using lambda and stream APIs
      */
     @Override
+    public void process() throws IOException {
+        writeToFile(
+            listFiles(getRootPath())
+                .stream()
+                .flatMap(
+                    f -> readLines(f)
+                        .stream()
+                        .filter(this::containsPattern)
+                )
+                .collect(Collectors.toList())
+        );
+    }
+
+    @Override
     public List<File> listFiles(String rootDir) {
         List<File> files = new LinkedList<>();
         try {
             Files.walk(Paths.get(rootDir))
                 .filter(Files::isRegularFile)
                 .forEach(f -> files.add(f.toFile()));
+                .forEach(f -> ls.add(f.toFile()));
         } catch (IOException e) {
             logger.error(e.getMessage(), e);
         }
