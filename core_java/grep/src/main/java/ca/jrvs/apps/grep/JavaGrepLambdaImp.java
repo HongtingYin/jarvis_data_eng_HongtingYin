@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -50,11 +51,12 @@ public class JavaGrepLambdaImp extends JavaGrepImp {
 
     @Override
     public List<String> readLines(File inputFile) {
+        List<String> listLines = new ArrayList<>();
         try (Stream<String> stream = Files.lines(inputFile.toPath())) {
-            return stream.collect(Collectors.toList());
+            listLines = stream.collect(Collectors.toList());
         } catch (IOException e) {
             logger.error(e.getMessage(), e);
         }
-        return new LinkedList<>();
+        return listLines;
     }
 }
