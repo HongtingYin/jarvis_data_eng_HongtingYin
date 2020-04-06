@@ -1,9 +1,5 @@
 # Introduction
-The `grep` app allows users to search for a spedific text pattern recursively in a given directory and output the matched lines to a file.
-
-To achieve the goal, the basic Java libraries were used and then applied Lambda and Stream APIs to improve the project.
-
-We also used Maven for project management and IntelliJ as our IDE.
+The `grep` app allows users to search for a spedific text pattern recursively in a given directory and output the matched lines to a file. To achieve the goal, the basic Java libraries were used and then applied Lambda and Stream APIs to improve the project. We also used Maven for project management and IntelliJ as our IDE.
 
 # Usage
 The program takes three arguments:
