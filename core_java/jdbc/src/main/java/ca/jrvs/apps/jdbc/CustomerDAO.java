@@ -10,7 +10,6 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-
 public class CustomerDAO extends DataAccessObject<Customer> {
 
     final Logger logger = LoggerFactory.getLogger(CustomerDAO.class);
