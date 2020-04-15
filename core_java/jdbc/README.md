@@ -20,6 +20,7 @@ By developing this project, I understand the basic JDBC and Transactions concept
     ```
 ## ER Diagram 
 
+![ER diagram](./assets/jdbc-er.png)
 
 There are five tables in the database `hplussport`:
 
