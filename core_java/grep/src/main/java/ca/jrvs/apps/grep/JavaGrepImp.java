@@ -34,7 +34,7 @@ public class JavaGrepImp implements JavaGrep {
 
     try{
       javaGrepImp.process();
-    } catch (Exception e) {
+    } catch (IOException e) {
       javaGrepImp.logger.error(e.getMessage(), e);
     }
   }
@@ -58,7 +58,7 @@ public class JavaGrepImp implements JavaGrep {
     final File rootFile = new File(rootDir);
     try {
       listFiles(rootFile, listOfFiles);
-    } catch (Exception e){
+    } catch (IOException e){
       logger.error(e.getMessage(), e);
     }
     return listOfFiles;
