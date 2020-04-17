@@ -1,6 +1,5 @@
 package ca.jrvs.apps.twitter.example;
 
-
 import com.google.gdata.util.common.base.PercentEscaper;
 import oauth.signpost.OAuthConsumer;
 import oauth.signpost.commonshttp.CommonsHttpOAuthConsumer;
@@ -28,7 +27,7 @@ public class TwitterApiTest {
 
         //create an HTTP GET request
         String status = "today is a good day";
-        PercentEscaper percentEscaper = new PercentEscaper( "", false);
+        PercentEscaper percentEscaper = new PercentEscaper("", false);
         HttpPost request = new HttpPost("https://api.twitter.com/1.1/status/update.json?status=" + percentEscaper.escape(status));
 
         //sign the request (add headers)
