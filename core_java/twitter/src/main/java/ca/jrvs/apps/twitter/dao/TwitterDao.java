@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.List;
 
 public class TwitterDao implements CrdDao<Tweet, String> {
 
@@ -68,11 +69,11 @@ public class TwitterDao implements CrdDao<Tweet, String> {
      * @throws URISyntaxException exception with wrong uri syntax
      */
     private URI getPostUri(Tweet tweet) throws URISyntaxException {
-        float[] coordinates = tweet.getCoordinates().getCoordinates();
+        List<Double> coordinates = tweet.getCoordinates().getCoordinates();
         URI uri = new URI(API_BASE_URI + POST_PATH + QUERY_SYM
                 + "status" + EQUAL + escaper.escape(tweet.getText())
-                + AMPERSAND + escaper.escape(String.valueOf(coordinates[0]))
-                + AMPERSAND + escaper.escape(String.valueOf(coordinates[1])));
+                + AMPERSAND + escaper.escape(String.valueOf(coordinates.get(0)))
+                + AMPERSAND + escaper.escape(String.valueOf(coordinates.get(1))));
         return uri;
 
     }
