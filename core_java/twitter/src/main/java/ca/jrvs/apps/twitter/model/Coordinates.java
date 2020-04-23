@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
+import java.util.List;
 
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -15,22 +16,22 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 public class Coordinates {
 
     @JsonProperty("coordinates")
-    private float[] coordinates;
+    private List<Double> coordinates;
     @JsonProperty("type")
     private String type;
 
-    public Coordinates(float[] coordinates, String type) {
+    public Coordinates(List<Double> coordinates, String type) {
         setCoordinates(coordinates);
         setType(type);
     }
 
     @JsonProperty("coordinates")
-    public float[] getCoordinates() {
+    public List<Double> getCoordinates() {
         return coordinates;
     }
 
     @JsonProperty("coordinates")
-    public void setCoordinates(float[] coordinates) {
+    public void setCoordinates(List<Double> coordinates) {
         this.coordinates = coordinates;
     }
 
