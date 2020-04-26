@@ -1,7 +1,7 @@
 package ca.jrvs.apps.twitter.dao;
 
 import ca.jrvs.apps.twitter.dao.helper.HttpHelper;
-import ca.jrvs.apps.twitter.example.JsonParser;
+import ca.jrvs.apps.twitter.util.JsonParser;
 import ca.jrvs.apps.twitter.model.Tweet;
 import com.google.gdata.util.common.base.PercentEscaper;
 import org.apache.http.HttpEntity;
@@ -17,7 +17,7 @@ import java.util.List;
 public class TwitterDao implements CrdDao<Tweet, String> {
 
     //URI constants
-    private static final String API_BASE_URI = "http://api.tweeter.com";
+    private static final String API_BASE_URI = "https://api.twitter.com";
     private static final String POST_PATH = "/1.1/statuses/update.json";
     private static final String SHOW_PATH = "/1.1/statuses/show.json";
     private static final String DELETE_PATH = "/1.1/statuses/destroy";
@@ -54,6 +54,8 @@ public class TwitterDao implements CrdDao<Tweet, String> {
             throw new IllegalArgumentException("Wrong input for tweet : " + e);
         }
 
+        System.out.println(uri);
+
         //execute Http request
         HttpResponse response = httpHelper.httpPost(uri);
 
@@ -69,13 +71,12 @@ public class TwitterDao implements CrdDao<Tweet, String> {
      * @throws URISyntaxException exception with wrong uri syntax
      */
     private URI getPostUri(Tweet tweet) throws URISyntaxException {
-        List<Double> coordinates = tweet.getCoordinates().getCoordinates();
+        List<Float> coordinates = tweet.getCoordinates().getCoordinates();
         URI uri = new URI(API_BASE_URI + POST_PATH + QUERY_SYM
                 + "status" + EQUAL + escaper.escape(tweet.getText())
-                + AMPERSAND + escaper.escape(String.valueOf(coordinates.get(0)))
-                + AMPERSAND + escaper.escape(String.valueOf(coordinates.get(1))));
+                + AMPERSAND + "long" + EQUAL + escaper.escape(String.valueOf(coordinates.get(0)))
+                + AMPERSAND + "lat" + EQUAL + escaper.escape(String.valueOf(coordinates.get(1))));
         return uri;
-
     }
 
     /**
@@ -100,6 +101,7 @@ public class TwitterDao implements CrdDao<Tweet, String> {
         } else {
             try {
                 tweetStr = EntityUtils.toString(httpEntity);
+                System.out.println(tweetStr);
             } catch (IOException e) {
                 throw new RuntimeException("Failed to convert Entity to String");
             }
@@ -109,7 +111,7 @@ public class TwitterDao implements CrdDao<Tweet, String> {
         try {
             return JsonParser.toObjectFromJson(tweetStr, Tweet.class);
         } catch (IOException e){
-            throw new RuntimeException("Failed to convert JSON to Tweet Object");
+            throw new RuntimeException("Failed to convert JSON to Tweet Object", e);
         }
     }
 
