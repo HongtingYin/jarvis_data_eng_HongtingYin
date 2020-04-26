@@ -16,22 +16,22 @@ import java.util.List;
 public class Coordinates {
 
     @JsonProperty("coordinates")
-    private List<Double> coordinates;
+    private List<Float> coordinates;
     @JsonProperty("type")
     private String type;
 
-    public Coordinates(List<Double> coordinates, String type) {
+    public Coordinates(List<Float> coordinates, String type) {
         setCoordinates(coordinates);
         setType(type);
     }
 
     @JsonProperty("coordinates")
-    public List<Double> getCoordinates() {
+    public List<Float> getCoordinates() {
         return coordinates;
     }
 
     @JsonProperty("coordinates")
-    public void setCoordinates(List<Double> coordinates) {
+    public void setCoordinates(List<Float> coordinates) {
         this.coordinates = coordinates;
     }
 
