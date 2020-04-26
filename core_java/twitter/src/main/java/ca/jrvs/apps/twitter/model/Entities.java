@@ -14,32 +14,35 @@ import java.util.List;
 
 public class Entities {
     @JsonProperty("hashtags")
-    private List<Hashtag> hashtages;
+    private List<Hashtag> hashtags;
     @JsonProperty("user_mentions")
-    private List<UserMention> userMentions;
+    private List<UserMention> user_mentions;
 
-    public Entities(List<Hashtag> hashtages, List<UserMention> userMentions) {
-        setHashtages(hashtages);
-        setUserMentions(userMentions);
+    public Entities() {
+    }
+
+    public Entities(List<Hashtag> hashtags, List<UserMention> user_mentions) {
+        setHashtags(hashtags);
+        setUser_mentions(user_mentions);
     }
 
     @JsonProperty("hashtags")
-    public List<Hashtag> getHashtages() {
-        return hashtages;
+    public List<Hashtag> getHashtags() {
+        return hashtags;
     }
 
     @JsonProperty("hashtags")
-    public void setHashtages(List<Hashtag> hashtages) {
-        this.hashtages = hashtages;
+    public void setHashtags(List<Hashtag> hashtags) {
+        this.hashtags = hashtags;
     }
 
     @JsonProperty("user_mentions")
-    public List<UserMention> getUserMentions() {
-        return userMentions;
+    public List<UserMention> getUser_mentions() {
+        return user_mentions;
     }
 
     @JsonProperty("user_mentions")
-    public void setUserMentions(List<UserMention> userMentions) {
-        this.userMentions = userMentions;
+    public void setUser_mentions(List<UserMention> user_mentions) {
+        this.user_mentions = user_mentions;
     }
 }
