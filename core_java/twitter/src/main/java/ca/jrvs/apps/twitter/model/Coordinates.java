@@ -20,6 +20,9 @@ public class Coordinates {
     @JsonProperty("type")
     private String type;
 
+    public Coordinates() {
+    }
+
     public Coordinates(List<Float> coordinates, String type) {
         setCoordinates(coordinates);
         setType(type);
