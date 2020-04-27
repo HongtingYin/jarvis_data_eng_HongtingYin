@@ -20,7 +20,7 @@ public class TwitterDao implements CrdDao<Tweet, String> {
     private static final String API_BASE_URI = "https://api.twitter.com";
     private static final String POST_PATH = "/1.1/statuses/update.json";
     private static final String SHOW_PATH = "/1.1/statuses/show.json";
-    private static final String DELETE_PATH = "/1.1/statuses/destroy";
+    private static final String DELETE_PATH = "/1.1/statuses/destroy.json";
 
     //URI symbols
     private static final String QUERY_SYM = "?";
@@ -125,7 +125,7 @@ public class TwitterDao implements CrdDao<Tweet, String> {
     public Tweet findById(String tweetIdF) {
         URI uri;
         try {
-            uri = new URI(API_BASE_URI + SHOW_PATH + tweetIdF);
+            uri = new URI(API_BASE_URI + SHOW_PATH + QUERY_SYM + "id" + EQUAL + tweetIdF);
         } catch (URISyntaxException e) {
             throw new IllegalArgumentException("Tweet ID not found:" + e);
         }
@@ -138,7 +138,7 @@ public class TwitterDao implements CrdDao<Tweet, String> {
     public Tweet deleteById(String tweetIdD) {
         URI uri;
         try {
-            uri = new URI(API_BASE_URI + DELETE_PATH + tweetIdD);
+            uri = new URI(API_BASE_URI + DELETE_PATH + QUERY_SYM + "id" + EQUAL + tweetIdD);
         } catch (URISyntaxException e) {
             throw new IllegalArgumentException("Tweet ID not found:" + e);
         }
