@@ -7,6 +7,8 @@ import com.google.gdata.util.common.base.PercentEscaper;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.util.EntityUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.IOException;
@@ -28,9 +30,10 @@ public class TwitterDao implements CrdDao<Tweet, String> {
     private static final String EQUAL = "=";
 
     //Response code
-    private static final int HTTP_OK = 200;
+    private static final int SC_OK = 200;
 
     private HttpHelper httpHelper;
+    private final Logger logger = LoggerFactory.getLogger(TwitterDao.class);
     private final PercentEscaper escaper = new PercentEscaper("", false);
 
     @Autowired
@@ -53,8 +56,6 @@ public class TwitterDao implements CrdDao<Tweet, String> {
         } catch (URISyntaxException e) {
             throw new IllegalArgumentException("Wrong input for tweet : " + e);
         }
-
-        System.out.println(uri);
 
         //execute Http request
         HttpResponse response = httpHelper.httpPost(uri);
@@ -89,7 +90,7 @@ public class TwitterDao implements CrdDao<Tweet, String> {
     protected Tweet parseResponseBody(HttpResponse response) {
         //check status code
         int status  = response.getStatusLine().getStatusCode();
-        if (status != TwitterDao.HTTP_OK) {
+        if (status != TwitterDao.SC_OK) {
             throw new RuntimeException("Unexpected HTTP status: " + status);
         }
 
@@ -101,7 +102,7 @@ public class TwitterDao implements CrdDao<Tweet, String> {
         } else {
             try {
                 tweetStr = EntityUtils.toString(httpEntity);
-                System.out.println(tweetStr);
+                logger.info(tweetStr);
             } catch (IOException e) {
                 throw new RuntimeException("Failed to convert Entity to String");
             }
