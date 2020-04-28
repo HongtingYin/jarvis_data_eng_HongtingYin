@@ -16,8 +16,8 @@ public class TweetUtil {
      * @param lat latitude
      * @return a nre tweet
      */
-    public static Tweet createTweet(String text, String hashtags, Float lon, Float lat) {
-        String status = text + hashtags + System.currentTimeMillis();
+    public static Tweet createTweet(String text, String hashtag, Float lon, Float lat) {
+        String status = text + hashtag + System.currentTimeMillis();
 
         List<Float> lonLat = new ArrayList<>();
         lonLat.add(lon);
