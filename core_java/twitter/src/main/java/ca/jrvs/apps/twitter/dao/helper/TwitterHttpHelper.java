@@ -63,9 +63,6 @@ public class TwitterHttpHelper implements HttpHelper {
             return httpClient.execute(getRequest);
         } else if (method == HttpMethod.POST) {
             HttpPost postRequest = new HttpPost(uri);
-//            if (stringEntity != null) {
-//                request.setEntity(stringEntity);
-//            }
             consumer.sign(postRequest);
             return httpClient.execute(postRequest);
         } else {
