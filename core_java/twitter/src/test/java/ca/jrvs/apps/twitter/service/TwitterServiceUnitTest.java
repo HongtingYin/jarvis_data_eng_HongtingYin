@@ -29,7 +29,7 @@ public class TwitterServiceUnitTest {
 
     @Test
     public void shouldPostTweet(){
-        Tweet newTweet = TweetUtil.createTweet("Post testing", " #unittest ", 60.0f, 61.0f);
+        Tweet newTweet = TweetUtil.createTweet("Post testing", 60.0f, 61.0f);
         Mockito.when(dao.create(any(Tweet.class))).thenReturn(newTweet);
         Tweet postTweet = service.postTweet(newTweet);
         assertEquals(postTweet.getText(), newTweet.getText());
@@ -37,7 +37,7 @@ public class TwitterServiceUnitTest {
 
     @Test
     public void shouldShowTweet() {
-        Tweet newTweet = TweetUtil.createTweet("Show testing", " #unittest ", 60.0f, 61.0f);
+        Tweet newTweet = TweetUtil.createTweet("Show testing", 60.0f, 61.0f);
         Mockito.when(dao.findById(anyString())).thenReturn(newTweet);
 
         Tweet tweet = service.showTweet("1234567890", null);
@@ -49,7 +49,7 @@ public class TwitterServiceUnitTest {
     @Test
     public void shouldDeleteTweets() {
         String[] ids = {"1250185392676130816"};
-        Tweet tweet1 = TweetUtil.createTweet("Delete testing", " #unittest ", 60.0f, 61.0f);
+        Tweet tweet1 = TweetUtil.createTweet("Delete testing", 60.0f, 61.0f);
 
         Mockito.when(dao.deleteById((anyString()))).thenReturn(tweet1);
         List<Tweet> tweet = service.deleteTweets(ids);
