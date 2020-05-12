@@ -42,7 +42,7 @@ public class TwitterDaoIntTest {
         coordinatesList.add(15.00f);
         coordinatesList.add(10.00f);
         Coordinates coordinates = new Coordinates(coordinatesList,"Point");
-        Tweet tweet = new Tweet("laptop" + hashtags + " " + System.currentTimeMillis(), coordinates);
+        Tweet tweet = new Tweet("laptop" + " " + System.currentTimeMillis(), coordinates);
 
         //send a post request
         Tweet createdTweet = dao.create(tweet);
@@ -64,7 +64,7 @@ public class TwitterDaoIntTest {
     public void findPostById() throws JsonProcessingException{
         String hashtags = "#FindById";
         String text = "Tomorrow will be a good day";
-        Tweet postTweetF = TweetUtil.createTweet(text, hashtags, 15.00f, 10.00f);
+        Tweet postTweetF = TweetUtil.createTweet(text, 15.00f, 10.00f);
         System.out.println(JsonParser.toJson(postTweetF, true, false));
         Tweet postedTweetF = dao.create(postTweetF);
 
@@ -84,7 +84,7 @@ public class TwitterDaoIntTest {
     public void deletePostById() throws JsonProcessingException {
         String hashtags = "#deletePostById";
         String text = "Testing";
-        Tweet postTweetD = TweetUtil.createTweet(text, hashtags, 10.00f, 15.00f);
+        Tweet postTweetD = TweetUtil.createTweet(text, 10.00f, 15.00f);
         System.out.println("testing");
         System.out.println(JsonParser.toJson(postTweetD, true, false));
         Tweet postedTweetD = dao.create(postTweetD);
