@@ -38,7 +38,7 @@ public class TwitterServiceIntTest {
     @Test
     public void shouldPostTweet() throws JsonProcessingException {
         //create a new tweet with coordinates
-        Tweet tweetWillBePosted = TweetUtil.createTweet("Post testing " + System.currentTimeMillis(), hashtags, 30.0f, 31.0f);
+        Tweet tweetWillBePosted = TweetUtil.createTweet("Post testing " + System.currentTimeMillis(), 30.0f, 31.0f);
 
         Tweet postTweet = service.postTweet(tweetWillBePosted);
 
@@ -49,13 +49,12 @@ public class TwitterServiceIntTest {
                 postTweet.getCoordinates().getCoordinates().get(0));
         assertEquals(tweetWillBePosted.getCoordinates().getCoordinates().get(1),
                 postTweet.getCoordinates().getCoordinates().get(1));
-        assertTrue(hashtags.contains(postTweet.getEntities().getHashtags().get(0).getText()));
     }
 
     @Test
     public void shouldShowTweet() {
         //create a new tweet with coordinates
-        Tweet tweetShouldBePosted = TweetUtil.createTweet("Show post testing" + System.currentTimeMillis(), hashtags, 40.0f, 41.0f);
+        Tweet tweetShouldBePosted = TweetUtil.createTweet("Show post testing" + System.currentTimeMillis(), 40.0f, 41.0f);
 
         Tweet showTweet = service.postTweet(tweetShouldBePosted);
 
@@ -66,13 +65,12 @@ public class TwitterServiceIntTest {
                 showTweet.getCoordinates().getCoordinates().get(0));
         assertEquals(tweetShouldBePosted.getCoordinates().getCoordinates().get(1),
                 showTweet.getCoordinates().getCoordinates().get(1));
-        assertTrue(hashtags.contains(showTweet.getEntities().getHashtags().get(0).getText()));
     }
 
     @Test
     public void shouldDeleteTweet() {
-        Tweet tweet1ShouldBeDeleted = TweetUtil.createTweet("Delete post1 testing" + System.currentTimeMillis(), hashtags, 50.0f, 51.0f);
-        Tweet tweet2ShouldBeDeleted = TweetUtil.createTweet("Delete post2 testing" + System.currentTimeMillis(), hashtags, 50.0f, 51.0f);
+        Tweet tweet1ShouldBeDeleted = TweetUtil.createTweet("Delete post1 testing" + System.currentTimeMillis(), 50.0f, 51.0f);
+        Tweet tweet2ShouldBeDeleted = TweetUtil.createTweet("Delete post2 testing" + System.currentTimeMillis(), 50.0f, 51.0f);
 
         Tweet deletedTweet1 = service.postTweet(tweet1ShouldBeDeleted);
         Tweet deletedTweet2 = service.postTweet(tweet2ShouldBeDeleted);
