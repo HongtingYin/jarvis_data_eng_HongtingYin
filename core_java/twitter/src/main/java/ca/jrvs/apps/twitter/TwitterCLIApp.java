@@ -13,12 +13,16 @@ import ca.jrvs.apps.twitter.util.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component
 public class TwitterCLIApp {
     final Logger logger = LoggerFactory.getLogger(TwitterCLIApp.class);
     public static final String USAGE = "USAGE: TwitterCLIApp post|show|delete [options]";
     private Controller controller;
 
+    @Autowired
     public TwitterCLIApp(Controller controller) {
         this.controller = controller;
     }
