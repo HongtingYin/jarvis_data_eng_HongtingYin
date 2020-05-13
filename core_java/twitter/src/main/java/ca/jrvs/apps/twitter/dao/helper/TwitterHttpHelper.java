@@ -28,7 +28,7 @@ public class TwitterHttpHelper implements HttpHelper {
         httpClient = HttpClientBuilder.create().build();
     }
 
-    public TwitterHttpHelper() {
+   public TwitterHttpHelper() {
         String consumerKey = System.getenv("consumerKey");
         String consumerSecret = System.getenv("consumerSecret");
         String accessToken = System.getenv("accessToken");
