@@ -34,7 +34,7 @@ public class TwitterHttpHelper implements HttpHelper {
         String accessToken = System.getenv("accessToken");
         String tokenSecret = System.getenv("tokenSecret");
 
-        OAuthConsumer consumer = new CommonsHttpOAuthConsumer(consumerKey,consumerSecret);
+        this.consumer = new CommonsHttpOAuthConsumer(consumerKey,consumerSecret);
         consumer.setTokenWithSecret(accessToken,tokenSecret);
         httpClient = HttpClientBuilder.create().build();
     }
