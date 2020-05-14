@@ -48,21 +48,22 @@ java -jar target/java_apps-1.0-SNAPSHOT.jar post|show|delete [option(s)]
 `"IDs`: List of ID corresponding to the tweets users want to delete.
 
 # Model
-The Model of TwitterCLI application contains five objects: `Tweet`, `Coordines`, `Entities`, `Hashtag`, and `UserMention`. The `Tweet` model is used to store the HTTP response in `Json` format from the Twitter server and the properties are parsed to `Tweet` object using JsonParser in `dao` package. An sample Json with interested properties used in the application is shown below.
-```
-{ "created_at":"Mon Feb 18 21:24:39  0000 2019", 
-"id":1097607853932564480, 
-"id_str":"1097607853932564480", 
-"text":"test with loc223", 
-"entities":{ 
-"hashtags":[], 
-"user_mentions":[] 
-}, 
-"coordinates":null, 
-"retweet_count":0, 
-"favorite_count":0, 
-"favorited":false, 
-"retweeted":false 
+The Model of TwitterCLI application contains five objects: `Tweet`, `Coordines`, `Entities`, `Hashtag`, and `UserMention`. The `Tweet` model is used to store the HTTP response in ```Json``` format from the Twitter server and the properties are parsed to `Tweet` object using JsonParser in `dao` package. An sample Json with interested properties used in the application is shown below.
+```Json
+{ 
+  "created_at":"Mon Feb 18 21:24:39  0000 2019", 
+  "id":1097607853932564480, 
+  "id_str":"1097607853932564480", 
+  "text":"test with loc223", 
+  "entities":{ 
+    "hashtags":[], 
+    "user_mentions":[] 
+  }, 
+  "coordinates":null, 
+  "retweet_count":0, 
+  "favorite_count":0, 
+  "favorited":false, 
+  "retweeted":false 
 }
 ```
 
