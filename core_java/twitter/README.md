@@ -15,6 +15,15 @@ The UML class diagram of TwitterCLI application is shown below:
 - `TwitterCLIapp`: The most top layer of the application. It initializes all the components of the TwitterCLI application and pass the command to Controller.
  
 # Quick Start
+## Environment variables
+* Set up the environment variables with OAuth 1.0 authentication keys and secrets by using `export`. Find the values of consumer key, consumer secret, access token, and token secret from Twitter Developer account and add them to the following command respectively.
+``` bash
+export consumerKey=*****
+export consumerSecret=*****
+export accessToken=*****
+export tokenSecret=*****
+``` 
+
 ## MVN
 * To build the package, proceed to `twitter` directory and run the following command in terminal.
 ``` bash
