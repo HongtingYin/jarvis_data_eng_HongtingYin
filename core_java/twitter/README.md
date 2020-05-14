@@ -27,16 +27,16 @@ java -jar target/java_apps-1.0-SNAPSHOT.jar post|show|delete [option(s)]
 
 ## Usage
 #### Post a tweet
-- Usage: `TwitterCLIApp post "Text" "Longitude:Latitude"`  
-`"Text"`: The text user wanna post.  
-`"Longitude:Latitude"`: User's current location.  
+- Usage: `java -jar target/java_apps-1.0-SNAPSHOT.jar post "Text" "Longitude:Latitude"`  
+ `"Text"`: The text user want to post.  
+ `"Longitude:Latitude"`: User's current location. 
 #### Find a tweet by its id
-- Usage: `TwitterCLIApp show "ID" "Fields"`  
-`"ID"`: The Id of the tweet that you want to show.  
+- Usage: `java -jar target/java_apps-1.0-SNAPSHOT.jar show "ID" "Fields"`  
+`"ID"`: The Id of the tweet that users want to show.  
 `"Fields"`: Fields indicated which part to show in the result.
 #### Delete tweets by ids
-- Usage: `TwitterCLIApp delete "IDs" "options"`  
-`"IDs`: List of ID corresponding to the tweets user wants to delete.
+- Usage: `java -jar target/java_apps-1.0-SNAPSHOT.jar delete "IDs" "options"`  
+`"IDs`: List of ID corresponding to the tweets users want to delete.
 
 # Model
 The Model of TwitterCLI application contains five objects: `Tweet`, `Coordines`, `Entities`, `Hashtag`, and `UserMention`. The `Tweet` model is used to store the HTTP response in `Json` format from the Twitter server and the properties are parsed to `Tweet` object using JsonParser in `dao` package. An sample Json with interested properties used in the application is shown below.
