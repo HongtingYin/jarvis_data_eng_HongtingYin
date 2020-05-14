@@ -14,7 +14,7 @@ public class TwitterService implements Service {
 
     @Autowired
     public TwitterService(CrdDao dao) {
-        this.dao =  dao;
+        this.dao = dao;
     }
 
     /**
@@ -38,7 +38,7 @@ public class TwitterService implements Service {
      * @param tweet
      */
     private void validatePostTweet(Tweet tweet) {
-        int lengthTweet =  tweet.getText().length();
+        int lengthTweet = tweet.getText().length();
         Float lon = tweet.getCoordinates().getCoordinates().get(0);
         Float lat = tweet.getCoordinates().getCoordinates().get(1);
 
@@ -48,7 +48,7 @@ public class TwitterService implements Service {
         }
 
         //check if text exceeds the maximum length 140
-        if (lengthTweet > 140) {
+        if (lengthTweet > maxLength) {
             throw new IllegalArgumentException("Tweet text exceeds 140 characters!");
         }
 
@@ -65,7 +65,7 @@ public class TwitterService implements Service {
     /**
      * find a tweet by id
      *
-     * @param id tweet id
+     * @param id     tweet id
      * @param fields set fields not in the list to null
      * @return
      */
@@ -75,9 +75,9 @@ public class TwitterService implements Service {
             throw new NullPointerException("No Id Provided!");
         }
 
-//        if (!id.matches("[0-9]+]")) {
-//            throw new IllegalArgumentException("Incorrect ID formate: " + id);
-//        }
+        if (!id.matches("[0-9]+]")) {
+            throw new IllegalArgumentException("Incorrect ID formate: " + id);
+        }
 
         try {
             long idLong = Long.parseLong(id);
@@ -91,10 +91,10 @@ public class TwitterService implements Service {
     @Override
     public List<Tweet> deleteTweets(String[] ids) {
         List<Tweet> deletedTweet = new ArrayList<Tweet>();
-        for(String id : ids){
-            if(!id.matches("[0-9]+")){
+        for (String id : ids) {
+            if (!id.matches("[0-9]+")) {
                 throw new IllegalArgumentException("ID is not in correct format");
-            }else{
+            } else {
                 deletedTweet.add((Tweet) dao.deleteById(id));
             }
         }
