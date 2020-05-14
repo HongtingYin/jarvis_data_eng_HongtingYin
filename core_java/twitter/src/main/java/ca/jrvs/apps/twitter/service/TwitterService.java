@@ -75,7 +75,7 @@ public class TwitterService implements Service {
             throw new NullPointerException("No Id Provided!");
         }
 
-        if (!id.matches("[0-9]+]")) {
+        if (!id.matches("[0-9]+")) {
             throw new IllegalArgumentException("Incorrect ID formate: " + id);
         }
 
