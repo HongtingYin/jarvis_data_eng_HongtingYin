@@ -38,7 +38,7 @@ public class TwitterDaoUnitTest {
         //exception is expected here
         when(mockHelper.httpPost(isNotNull())).thenThrow(new RuntimeException("mock"));
         try {
-            dao.create(TweetUtil.createTweet(text, hashtag, lon, lat));
+            dao.create(TweetUtil.createTweet(text, lon, lat));
             fail();
         } catch (RuntimeException e) {
             assertTrue(true);
@@ -65,7 +65,7 @@ public class TwitterDaoUnitTest {
         Tweet createTweet = JsonParser.toObjectFromJson(tweetJsonStr, Tweet.class);
         //mock parseResponseBody
         doReturn(createTweet).when(spyDao).parseResponseBody(any());
-        Tweet tweet = spyDao.create(TweetUtil.createTweet(text, hashtag, lon, lat));
+        Tweet tweet = spyDao.create(TweetUtil.createTweet(text, lon, lat));
         assertNotNull(tweet);
         assertNotNull(tweet.getText());
     }
