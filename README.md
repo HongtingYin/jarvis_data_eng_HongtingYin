@@ -1,12 +1,12 @@
 
 # Hongting Yin . Jarvis Consulting
 
-I am a recent graduate of the University of Waterloo with a degree in Master of Engineering and my focus was on software development and data processing when I was pursuing my master's degree. I'm an enthusiastic and goal-oriented engineer with a passion for software and data engineering and project-based experience. I'm also a detail-oriented and dedicated team player with a 'can-do' attitude while teaming collaboration. Now I'm working at Jarvis on projects related to Linux bash and core Java. During my spare time, I enjoy watching movies, traveling, and jogging.
+I am a recent graduate of the University of Waterloo with a degree in Master of Engineering and my focus was on software development and data processing when I was pursuing my master's degree. I'm an enthusiastic and goal-oriented engineer with a passion for software and data engineering and project-based experience. I'm also a detail-oriented and dedicated team player with a 'can-do' attitude while teaming collaboration. During my spare time, I enjoy watching movies, traveling, and jogging.
 
 ## Skills
-**Proficient:** Java, Bash, SQL, Agile/Scrum, Git, Python 
+**Proficient:** Java, Bash, SQL, Agile/Scrum, Git, Python, Slack
 
-**Competent:** Springboot, C++, LaTex
+**Competent:** Maven, Springboot, REST APIs, C++, LaTex
 
 **Familiar:** Scikit-Learn, Keras, Numpy, Pandas, Matplotlib
 
