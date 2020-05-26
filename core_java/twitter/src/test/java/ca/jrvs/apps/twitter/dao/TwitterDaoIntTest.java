@@ -62,21 +62,22 @@ public class TwitterDaoIntTest {
 
     @Test
     public void findPostById() throws JsonProcessingException{
-        String hashtags = "#FindById";
-        String text = "Tomorrow will be a good day";
-        Tweet postTweetF = TweetUtil.createTweet(text, 15.00f, 10.00f);
-        System.out.println(JsonParser.toJson(postTweetF, true, false));
-        Tweet postedTweetF = dao.create(postTweetF);
+        ArrayList<Float> coordinatesList = new ArrayList<>();
+        coordinatesList.add(5.14f);
+        coordinatesList.add(5.14f);
+        Coordinates coordinates = new Coordinates(coordinatesList,"Point");
+        Tweet postTweetF = new Tweet("Find testing" + " " + System.currentTimeMillis(), coordinates);
 
+        Tweet postedTweetF = dao.create(postTweetF);
         String id = postedTweetF.getId_str();
         Tweet tweet = dao.findById(id);
 
-        assertEquals(postTweetF.getText(), tweet.getText());
+        assertEquals(postedTweetF.getText(), tweet.getText());
         assertNotNull(tweet.getCoordinates());
         assertEquals(2, tweet.getCoordinates().getCoordinates().size());
-        assertEquals(postedTweetF.getCoordinates().getCoordinates().get(0),
+        assertEquals(postTweetF.getCoordinates().getCoordinates().get(0),
                 tweet.getCoordinates().getCoordinates().get(0));
-        assertEquals(postedTweetF.getCoordinates().getCoordinates().get(1),
+        assertEquals(postTweetF.getCoordinates().getCoordinates().get(1),
                 tweet.getCoordinates().getCoordinates().get(1));
     }
 
