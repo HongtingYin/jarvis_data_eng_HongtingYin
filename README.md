@@ -1,12 +1,12 @@
 
 # Hongting Yin . Jarvis Consulting
 
-I am a recent graduate of the University of Waterloo with a degree in Master of Engineering and my focus was on software development and data processing when I was pursuing my master's degree. I'm an enthusiastic and goal-oriented engineer with a passion for software and data engineering and project-based experience. I'm also a detail-oriented and dedicated team player with a 'can-do' attitude while teaming collaboration. Now I'm working at Jarvis on projects related to Linux bash and core Java. During my spare time, I enjoy watching movies, traveling, and jogging.
+I am a recent graduate of the University of Waterloo with a degree in Master of Engineering and my focus was on software development and data processing when I was pursuing my master's degree. I'm an enthusiastic and goal-oriented engineer with a passion for software and data engineering and project-based experience. I'm also a detail-oriented and dedicated team player with a 'can-do' attitude while teaming collaboration. During my spare time, I enjoy watching movies, traveling, and jogging.
 
 ## Skills
-**Proficient:** Java, Bash, SQL, Agile/Scrum, Git, Python 
+**Proficient:** Java, Bash, SQL, Agile/Scrum, Git, Python, Slack
 
-**Competent:** Springboot, C++, LaTex
+**Competent:** Maven, Springboot, REST APIs, C++, LaTex
 
 **Familiar:** Scikit-Learn, Keras, Numpy, Pandas, Matplotlib
 
@@ -14,9 +14,9 @@ I am a recent graduate of the University of Waterloo with a degree in Master of 
 
 Project source code: [https://github.com/jarviscanada/jarvis_data_eng_HongtingYin](https://github.com/jarviscanada/jarvis_data_eng_HongtingYin)
 
-- **[Cluster Monitor](./linux_sql)**: Developed a bash agent to monitor server hardware specifications and usage in real-time using Bash and SQL. Inserted collected data into a PostgreSQL database provisioned by docker. Wrote SQL queries to analyze server resource usage for linux cluster planning and forecast.
+- **[Cluster Monitor](./linux_sql)**: Developed a bash agent to monitor server hardware specifications and usage in real-time using Bash and SQL. Inserted collected data into a PostgreSQL database provisioned by docker. Wrote SQL queries to analyze server resource usage for Linux cluster planning and forecast.
 - **[Core Java Apps](./core_java)**: Programmed three Java applications using various libraries and tools. The Grep application is to search for a specific text pattern recursively in a given directory and output the matched lines to a file. This application was implemented using Java 8 Stream APIs and Lambda Expressions. The JDBC application allows developers to connect to a PostgreSQL database and implement CRUD operations using the DAO pattern. The third application is a Twitter CLI Java Application which is used to post, find, delete tweets. Designed the application with the MVC architecture. Tested the application using JUnit and Mockito libraries.
-- **[SpringBoot App](./springboot)**: Not started
+- **[SpringBoot App](./springboot)**: Developing a stock trading microservice by using SpringBoot. The application is able to access real-time market data from IEX Cloud and store the account information of a trader into a PostgreSQL database. It also use Swagger as an interface where users are able to operate their personal accounts and stock trading information.
 - **[Cloud & DevOps](./cloud_devops)**: Not started
 - **[Hadoop](./hadoop)**: Not started
 - **[Spark/Scala](./spark)**:  Not started
