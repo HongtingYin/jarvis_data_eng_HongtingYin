@@ -26,7 +26,6 @@ public class QuoteDao extends JdbcCrudDao<Quote, String> {
         simpleJdbcInsert = new SimpleJdbcInsert(dataSource).withTableName(TABLE_NAME);
     }
 
-
     @Override
     public JdbcTemplate getJdbcTemplate() {
         return jdbcTemplate;
